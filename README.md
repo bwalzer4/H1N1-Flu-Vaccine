@@ -1,5 +1,5 @@
 # H1N1-Flu-Vaccine
-Predicting the likelihood of an individual receiving the H1N1 and seasonal flu vaccines.
+This project was completed during a Computational Data Analysis course, while pursuing my Master's of Science in Analytics from Georgia Tech. The project aimes to predict the likelihood of an individual receiving the H1N1 and seasonal flu vaccines based on a data challenge on DataDriven.org.
 
 ## Problem Statement
 Since the rise of the COVID-19, public health experts across the world have pointed to the development of 
@@ -13,7 +13,7 @@ receive the vaccine.<sup>2</sup>
 
 To explore public health response to a different but recent major respiratory disease pandemic, 
 DataDriven.org is hosting a competition around the likelihood of individuals to receive the H1N1 and 
-seasonal flu vaccines. H1N1 is the subtype of Influenza A virus and well known outbreaks of H1N1 strains 
+seasonal flu vaccines.<sup>3</sup> H1N1 is the subtype of Influenza A virus and well known outbreaks of H1N1 strains 
 occurred during the 2009 swine flue pandemic as well as the 1918 “Spanish” Flu Pandemic. A vaccine for 
 the H1N1 flu virus became publicly available in October 2009. The competition aims to explore how we 
 can predict if an individual will get a COVID-19 vaccine by looking at data on the H1N1 and seasonal 
