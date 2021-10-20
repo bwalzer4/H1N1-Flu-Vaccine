@@ -36,13 +36,22 @@ the proportion of respondents who received the H1N1 and seasonal flu vaccines re
 received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
 
  <p align="center">
-     <b>H1N1 Vaccine Responses</b>
+     <b>Figure 1: H1N1 Vaccine Responses</b>
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/h1n1_waffle.png?raw=True" />
   </p>
 </figure>
 
 
-![alt text](https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/h1n1_waffle.png?raw=True)
+
+<p align="center">
+     <b>Figure 1: Seasonal Flu Vaccine Responses</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seasonal_waffle.png?raw=True" />
+  </p>
+</figure>
+
