@@ -34,3 +34,6 @@ respondents reported having received a H1N1 vaccine or a seasonal flu vaccine.
 Figure 1 and Figure 2 display
 the proportion of respondents who received the H1N1 and seasonal flu vaccines respectively. Only 21% of respondents 
 received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
+
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
