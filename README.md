@@ -44,10 +44,10 @@ received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
   </p>
 </figure>
 
-<br></br>
+
 
 <p align="center">
-     <b>Figure 1: Seasonal Flu Vaccine Responses</b>
+     <b>Figure 2: Seasonal Flu Vaccine Responses</b>
   </p>
 <figure>
   <p align="center">
