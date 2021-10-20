@@ -36,7 +36,7 @@ the proportion of respondents who received the H1N1 and seasonal flu vaccines re
 received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
 
  <p align="center">
-    H1N1 Vaccine Responses
+    **H1N1 Vaccine Responses**
   </p>
 <figure>
   <p align="center">
