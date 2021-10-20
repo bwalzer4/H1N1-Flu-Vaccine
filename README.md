@@ -27,8 +27,7 @@ In late 2009 and early 2010, the United States National Center for Health Statis
 seasonal flu vaccines, in addition to questions about the respondents. These additional questions covered 
 their social, economic, and demographic background, opinions on risks of illness and vaccine effectiveness,
 and behaviors towards mitigating transmission.
-The dataset contains the survey responses from 26,706 respondents and includes 35 features, which are 
-detailed in Appendix A – Dataset Features. Of the 35 features 13 are binary, 12 are categorical, 8 are ordinal, 
+The dataset contains the survey responses from 26,706 respondents and includes 35 features. Of the 35 features 13 are binary, 12 are categorical, 8 are ordinal, 
 and 2 are numerical. The dataset includes two response variables which are binary and represent whether or not 
 respondents reported having received a H1N1 vaccine or a seasonal flu vaccine. 
 
