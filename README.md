@@ -55,6 +55,17 @@ received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
   </p>
 </figure>
 
+Figure 3 shows a more detailed breakdown of each individuals vaccine responses. From the Sunburst Chart we can see that individuals who did not recieve the H1NI vaccine were more likely to not have recieved the Seasonal Flu vaccine and vice versa. The correlation coefficient between the two response variables is 0.38, so there is slight positive correlation between them.
+
+<p align="center">
+     <b>Figure 2: Sunburst Chart of Vaccine Responses</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/sunburst%20responses.png?raw=True" />
+  </p>
+</figure>
+
 ## Methodology
 
 ### Data Cleansing and Preprocessing
@@ -98,7 +109,7 @@ After hyperparameter tuning each of the classification algorithms and identifyin
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/H1N1%20Prediction%20Results.png?raw=True" />
   </p>
 </figure>
 
@@ -107,7 +118,7 @@ After hyperparameter tuning each of the classification algorithms and identifyin
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Seasonal%20Flu%20Prediction%20Results.png?raw=True" />
   </p>
 </figure>
 
