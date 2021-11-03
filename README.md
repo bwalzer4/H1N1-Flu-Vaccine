@@ -127,7 +127,7 @@ From Figure 1 we know that the responses to seasonal flu vaccine are more balanc
 While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>3</sup> 
 
 <p align="center">
-     <b>Table 3: Top 10 Features Correlation Coeficients</b>
+     <b>Table 3: Feature Importance</b>
   </p>
 <figure>
   <p align="center">
