@@ -64,6 +64,15 @@ After exploring the dataset two features, Employment Industry and Employment Obs
 
 The cleaned and imputed dataset contained 60 features and while there are 26,706 it is still possible for overfitting to occur if all of the features were used. Dimensionality reduction was explored through the use of Principal Component Analysis, but since the features were primarily categorical it proved to not be effective, with the top principal components accounting for minimal variation in the data set. Filtering was also used to reduce the number of features to those that had an absolute value of correlation greater than 0.05 between the response variable and features. Figure 3 displays the correlation coefficient for each feature and response variable, for the features with the 10 largest correlation coefficients with the response. Recursive feature selection was also explored to identify the features that had the most importance in each classification algorithm. However, when comparing models built with all features and those with features filtered out or recursively selected the models that were trained on the full set of features outperformed those with less features on the testing set. Ultimately it appears that given the number of observations using all 60 features does not appear to cause overfitting in the classification models.
 
+<p align="center">
+     <b>Figure 3: Top 10 Features Correlation Coeficients</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+  </p>
+</figure>
+
 ### Model Selection
 
 Given that the problem is a binary classification problem there were numerous Machine Learning algorithms that could reasonably predict the class. Several classification models were explored initially to identify which had the best performance. The K-Nearest Neighbors (KNN) algorithm was screened out due to poor performance. Since the at the core of the KNN algorithm is a distance metric calculation, categorical features make it more challenging for it to classify data points. A Support Vector Machine classification algorithm was also explored but also screened out due to poor initial performance and it being computational-intensive on a large data set. Ultimately Multi-Layer Perceptron (MLP), Boosting, and Random Forrest algorithms were chosen as candidates to validate and test for this classification problem. The following sections describe the methodology and process for each algorithm. For each algorithm used the data was split into training (80%) and testing (20%) for each of the response variables. Prior to training each classification model the data was standardized by removing the mean and scaling to unit variance i.e. normally distributed with mean zero and unit variance. Performance was measured by the Area Under the Receiver Operator Curve.
@@ -84,9 +93,36 @@ Random Forests are another ensemble learning method which randomly construct man
 
 After hyperparameter tuning each of the classification algorithms and identifying the optimal parameters each model was evaluated on its accuracy and Area Under the Receiver Operator Curve (AUC) for the test data. While both evaluation criteria are shown the AUC is the preferred metric for measuring classification performance and is what is used in the DataDriven competition to assess submissions. Table 1 displays the results for predicting how likely individual were to receive their H1N1 vaccine and Table 2 displays the likelihood to receive the seasonal flu vaccine.
 
+<p align="center">
+     <b>Table 1: H1N1 Vaccine Prediction Results</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+  </p>
+</figure>
+
+<p align="center">
+     <b>Table 2: Seasonal Vaccine Prediction Results</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+  </p>
+</figure>
+
 From Figure 1 we know that the responses to seasonal flu vaccine are more balanced than the H1N1 responses and from the correlation plots in Appendix D – Correlation between Features and Response Variables we can see that the features correlation with seasonal flu vaccine responses are of a greater magnitude, so it is not surprising that the algorithms were able to achieve a higher AUC for predicting seasonal flu responses. The Gradient Boosting algorithms performed best for both Reponses, but all other algorithms were within 1% of the AUC measures.
 
 While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>3</sup> 
+
+<p align="center">
+     <b>Table 3: Top 10 Features Correlation Coeficients</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+  </p>
+</figure>
 
 One of the most important features for both vaccines was whether or not the individuals doctor recommended they receive the vaccine. Two other important behavioral factors were an individuals perception on whether or not the vaccine was effective and their perceived risk around the vaccine. These factors intuitively make sense but emphasize the importance of healthcare providers recommending individuals receive a vaccine and general vaccine education in influencing individuals to receive their vaccines. Since the COVID-19 pandemic is much more similar in nature to the H1N1 swine flu pandemic of 2009 these features should be explored by researchers when trying to determine the likelihood of an individual getting the COVID-19 vaccine. 
 
