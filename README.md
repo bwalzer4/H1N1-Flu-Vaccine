@@ -62,7 +62,7 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/sunburst_chart.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/sunburst_1.png?raw=True" />
   </p>
 </figure>
 
