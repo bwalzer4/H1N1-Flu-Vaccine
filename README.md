@@ -66,10 +66,19 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
   </p>
 </figure>
 
+
 ## Methodology
 
 ### Data Cleansing and Preprocessing
-After exploring the dataset two features, Employment Industry and Employment Observation, were identified that had a significant amount of data missing – nearly 50% of the observations. As a result, they were dropped from the dataset. Several of the other features also had missing observations, but none to the magnitude of the two that were dropped. To remedy the missing observations, I chose to impute the data using a K-Nearest Neighbor imputation algorithm, which fills in missing values based on the k-nearest points measured in Euclidean Distance. Prior to performing the imputation, the 10 remaining categorical variables needed to be converted to integer ordinals. Following the imputation, the categorical variables were then encoded and turned into dummy variables. The final result left the data set with 60 features.
+After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Observation, were identified that had a significant amount of data missing – over 45% of the observations were missing. Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>4</sup> The iterative imputation approach used a Random Forrest classifier to predict missing values and the algorithm is described below:
+ 1. Identify all (row, column) indices that have missing values
+ 2. Select column c with missing values as the target column
+ 3. Select subsample of the dataset (including response variables) that has no missing values in the training or testing data set
+ 4. For training data convert categorical features into dummy variables but leave the target column as categorical (multi-class)
+ 5. Train Random Forrest Model and predict missing values for target column c
+ 6. Replace missing values in column c with prediction as a placeholder
+ 7. Repeat Steps 2-6 for all columns with missing values
+ 8. With the imputed data repeat Steps 2-6 using indices from Step 1 for X cycles
 
 ### Feature Selection
 
@@ -141,3 +150,4 @@ One of the most important features for both vaccines was whether or not the indi
 1. DrivenData. (n.d.). Flu Shot Learning: Predict H1N1 and Seasonal Flu Vaccines. Retrieved July 29, 2020, from https://www.drivendata.org/competitions/66/flu-shot-learning/
 2. https://www.npr.org/sections/coronavirus-live-updates/2020/05/27/863401430/poll-shows-only-a-quarter-of-african-americans-plan-to-get-coronavirus-vaccine
 3. The lack of interpretability of MLP models is one of its weaknesses and determining feature importance was proved to be too challenging for this project; therefore, the Neural Network model is excluded from this table. The feature importance for the AdaBoost, Gradient Boosting, and Random Forrest algorithms is based on the weighted average of the total decrease in node impurity for each feature based on a Decision Tree Classifier.
+4. Wulff, Jesper and Linda Ejlskov Jeppesen. “Multiple imputation by chained equations in praxis: Guidelines and review.” The Electronic Journal of Business Research Methods 15 (2017): 41-56. 
