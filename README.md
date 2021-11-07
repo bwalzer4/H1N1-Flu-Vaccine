@@ -14,7 +14,7 @@ receive the vaccine.<sup>2</sup>
 To explore public health response to a different but recent major respiratory disease pandemic, 
 DataDriven.org is hosting a competition around the likelihood of individuals to receive the H1N1 and 
 seasonal flu vaccines. H1N1 is the subtype of Influenza A virus and well known outbreaks of H1N1 strains 
-occurred during the 2009 swine flue pandemic as well as the 1918 “Spanish” Flu Pandemic. A vaccine for 
+occurred during the 2009 swine flu pandemic as well as the 1918 “Spanish” Flu Pandemic. A vaccine for 
 the H1N1 flu virus became publicly available in October 2009. The competition aims to explore how we 
 can predict if an individual will get a COVID-19 vaccine by looking at data on the H1N1 and seasonal 
 vaccines from data from 2009-2010. A better understanding of how these characteristics are associated 
@@ -31,8 +31,7 @@ The dataset contains the survey responses from 26,706 respondents and includes 3
 and 2 are numerical. The dataset includes two response variables which are binary and represent whether or not 
 respondents reported having received a H1N1 vaccine or a seasonal flu vaccine. 
 
-Figure 1 and Figure 2 display
-the proportion of respondents who received the H1N1 and seasonal flu vaccines respectively. Only 21% of respondents 
+Figure 1 and Figure 2 display the proportion of respondents who received the H1N1 and seasonal flu vaccines respectively. Only 21% of respondents 
 received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
 
  <p align="center">
