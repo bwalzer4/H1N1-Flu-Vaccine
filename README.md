@@ -133,7 +133,9 @@ After hyperparameter tuning each of the classification algorithms and identifyin
 
 From Figure 1 we know that the responses to seasonal flu vaccine are more balanced than the H1N1 responses and from the correlation plots in Appendix D – Correlation between Features and Response Variables we can see that the features correlation with seasonal flu vaccine responses are of a greater magnitude, so it is not surprising that the algorithms were able to achieve a higher AUC for predicting seasonal flu responses. The Gradient Boosting algorithms performed best for both Reponses, but all other algorithms were within 1% of the AUC measures.
 
-While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>3</sup> 
+While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. This slight nuance is the difference between Predictive and Explanatory modeling, and warrants further discussion beyond the scope of this project, but Professor Galit Shmueli’s paper “To Explain or To Predict?” provides a thorough distinction and practical implications.<sup>3</sup> 
+To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>4</sup> 
+
 
 <p align="center">
      <b>Table 3: Feature Importance</b>
@@ -149,5 +151,6 @@ One of the most important features for both vaccines was whether or not the indi
 ## References and Notes
 1. DrivenData. (n.d.). Flu Shot Learning: Predict H1N1 and Seasonal Flu Vaccines. Retrieved July 29, 2020, from https://www.drivendata.org/competitions/66/flu-shot-learning/
 2. https://www.npr.org/sections/coronavirus-live-updates/2020/05/27/863401430/poll-shows-only-a-quarter-of-african-americans-plan-to-get-coronavirus-vaccine
-3. The lack of interpretability of MLP models is one of its weaknesses and determining feature importance was proved to be too challenging for this project; therefore, the Neural Network model is excluded from this table. The feature importance for the AdaBoost, Gradient Boosting, and Random Forrest algorithms is based on the weighted average of the total decrease in node impurity for each feature based on a Decision Tree Classifier.
-4. Wulff, Jesper and Linda Ejlskov Jeppesen. “Multiple imputation by chained equations in praxis: Guidelines and review.” The Electronic Journal of Business Research Methods 15 (2017): 41-56. 
+3. Shmueli, Galit, To Explain or To Predict? (May 24, 2010). Statistical Science, Available at SSRN: https://ssrn.com/abstract=1351252 or http://dx.doi.org/10.2139/ssrn.1351252
+4. The lack of interpretability of MLP models is one of its weaknesses and determining feature importance was proved to be too challenging for this project; therefore, the Neural Network model is excluded from this table. The feature importance for the AdaBoost, Gradient Boosting, and Random Forrest algorithms is based on the weighted average of the total decrease in node impurity for each feature based on a Decision Tree Classifier.
+5. Wulff, Jesper and Linda Ejlskov Jeppesen. “Multiple imputation by chained equations in praxis: Guidelines and review.” The Electronic Journal of Business Research Methods 15 (2017): 41-56. 
