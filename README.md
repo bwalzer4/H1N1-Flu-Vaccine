@@ -1,7 +1,9 @@
 # H1N1-Flu-Vaccine
+
 This project was completed during a Computational Data Analysis course, while pursuing my Master's of Science in Analytics from Georgia Tech. The project aimes to predict the likelihood of an individual receiving the H1N1 and seasonal flu vaccines based on a data challenge on DataDriven.org.
 
 ## Problem Statement
+
 Since the rise of the COVID-19, public health experts across the world have pointed to the development of 
 a vaccine as a key factor in stemming the spread of the disease. Vaccines provide acquired immunity to 
 infectious diseases for individuals, and enough immunizations in a community can further reduce the 
@@ -22,6 +24,7 @@ with personal vaccination patterns can provide guidance for future public health
 these characteristics to predict how likely an individual is to receive their H1N1 and seasonal flu vaccines.
 
 ## Data Source
+
 In late 2009 and early 2010, the United States National Center for Health Statistics conducted the National 
 2009 H1N1 Flu Survey. This phone survey asked respondents whether they had received the H1N1 and 
 seasonal flu vaccines, in addition to questions about the respondents. These additional questions covered 
@@ -70,6 +73,7 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
 
 ### Data Cleansing and Preprocessing
 #### Imputation
+
 After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not Employed have a missing value for Employment Industry and Employment Occupation. Therefore, those missing values were replaced with an addittional category.
 
 Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a Random Forrest classifier to predict missing values and the algorithm is described below:
@@ -83,6 +87,7 @@ Across all features, 6.5% of the entire data set had missing values. I explored 
  8. With the imputed data repeat Steps 2-6 using indices from Step 1 for 5 cycles
 
 #### Encoding
+
 For the categorical variables I explored target encoding and one hot encoding. Target encoding replaces the category value with an aggregate measure of the target variable for that category. I chose to replace the category with the mean target value of the category for each target variable. One hot encoding creates n-1 binary or dummy variables that indicate if the observation falls in that category, where n is the number of categories.
 
 The final results of the data preprocessing was 4 different data sets for each response variable, which are shown in Figure 4 below.
@@ -124,6 +129,10 @@ Boosting algorithms convert weak classifiers, which do not perform much better t
 ### Random Forrest Methodology
 
 Random Forests are another ensemble learning method which randomly construct many decision trees and output the class predicted across all trees. Random Forrest method was chosen since it typically outperforms Decision Tree’s and did so in initial evaluations. Cross-Validation was used to tune the number of trees used in the classifier.
+
+### Model Stacking
+
+In addittion to comparing the performance of different classifiers, I also explored stacking each model to produce a more robust predictive model. Model stacking uses the outputs of each model as inputs of a final model. The intuition is that the final model is built by maximizing the strenghts and minimizing the weaknesses of each classifier. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner.
 
 ## Evaluation and Final Results
 
