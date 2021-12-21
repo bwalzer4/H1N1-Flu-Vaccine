@@ -57,7 +57,7 @@ received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
 Figure 3 shows a more detailed breakdown of each individuals vaccine responses. From the Sunburst Chart we can see that individuals who did not recieve the H1NI vaccine were more likely to not have recieved the Seasonal Flu vaccine and vice versa. The correlation coefficient between the two response variables is 0.38, so there is slight positive correlation between them.
 
 <p align="center">
-     <b>Figure 2: Sunburst Chart of Vaccine Responses</b>
+     <b>Figure 3: Sunburst Chart of Vaccine Responses</b>
   </p>
 <figure>
   <p align="center">
@@ -69,7 +69,10 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
 ## Methodology
 
 ### Data Cleansing and Preprocessing
-After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Observation, were identified that had a significant amount of data missing – over 45% of the observations were missing. Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a Random Forrest classifier to predict missing values and the algorithm is described below:
+#### Imputation
+After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not Employed have a missing value for Employment Industry and Employment Occupation. Therefore, those missing values were replaced with an addittional category.
+
+Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a Random Forrest classifier to predict missing values and the algorithm is described below:
  1. Identify all (row, column) indices that have missing values
  2. Select column c with missing values as the target column
  3. Select subsample of the feature dataset that has no missing values in the training or testing data set
@@ -77,7 +80,21 @@ After exploring the dataset three features, Employment Industry, Health Insuranc
  5. Train Random Forrest Model and predict missing values for target column c
  6. Replace missing values in column c with prediction as a placeholder
  7. Repeat Steps 2-6 for all columns with missing values
- 8. With the imputed data repeat Steps 2-6 using indices from Step 1 for X cycles
+ 8. With the imputed data repeat Steps 2-6 using indices from Step 1 for 5 cycles
+
+#### Encoding
+For the categorical variables I explored target encoding and one hot encoding. Target encoding replaces the category value with an aggregate measure of the target variable for that category. I chose to replace the category with the mean target value of the category for each target variable. One hot encoding creates n-1 binary or dummy variables that indicate if the observation falls in that category, where n is the number of categories.
+
+The final results of the data preprocessing was 4 different data sets for each response variable, which are shown in Figure 4 below.
+
+<p align="center">
+     <b>Figure 4: Final Datasets</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/sunburst_1.png?raw=True" />
+  </p>
+</figure>
 
 ### Feature Selection
 
