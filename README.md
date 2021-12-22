@@ -105,10 +105,10 @@ The final results of the data preprocessing was 4 different data sets for each r
 
 ### Feature Selection
 
-The cleaned and imputed datasets contained 35 and 90 features and while there are 26,706 it is still possible for overfitting to occur if all of the features were used. Dimensionality reduction was explored through the use of Principal Component Analysis, but since the features were primarily categorical it proved to not be effective, with the top principal components accounting for minimal variation in the data set. Filtering was also used to reduce the number of features to those that had an absolute value of correlation greater than 0.05 between the response variable and features. Figure 3 displays the correlation coefficient for each feature and response variable, for the features with the 10 largest correlation coefficients with the response. Recursive feature selection was also explored to identify the features that had the most importance in each classification algorithm. However, when comparing models built with all features and those with features filtered out or recursively selected the models that were trained on the full set of features outperformed those with less features on the testing set. Ultimately it appears that given the number of observations using all 60 features does not appear to cause overfitting in the classification models.
+The cleaned and imputed datasets contained 35 and 90 features and while there are 26,706 it is still possible for overfitting to occur if all of the features were used. Dimensionality reduction was explored through the use of Principal Component Analysis, but since the features were primarily categorical it proved to not be effective, with the top principal components accounting for minimal variation in the data set. Filtering was also used to reduce the number of features to those that had an absolute value of correlation greater than 0.05 between the response variable and features. Figure 5 displays the correlation coefficient for each feature and response variable, for the features with the 10 largest correlation coefficients with the response. Recursive feature selection was also explored to identify the features that had the most importance in each classification algorithm. However, when comparing models built with all features and those with features filtered out or recursively selected the models that were trained on the full set of features outperformed those with less features on the testing set. Ultimately it appears that given the number of observations using all 60 features does not appear to cause overfitting in the classification models.
 
 <p align="center">
-     <b>Figure 3: Top 10 Features Correlation Coeficients</b>
+     <b>Figure 5: Top 10 Features Correlation Coeficients</b>
   </p>
 <figure>
   <p align="center">
@@ -136,9 +136,24 @@ Boosting algorithms convert weak classifiers, which do not perform much better t
 
 Random Forests are another ensemble learning method which randomly construct many decision trees and output the class predicted across all trees. Random Forrest method was chosen since it typically outperforms Decision Tree’s and did so in initial evaluations, and to account for the categorical nature of the data set. Cross-Validation was used to tune the number of trees used in the classifier.
 
+## Initial Results
+
+After hyperparameter tuning each of the classification algorithms and identifying the optimal parameters each model was evaluated on its accuracy and Area Under the Receiver Operator Curve (AUC) for the test data. Figure 6 displauys the AUC results by model type, imputation method, and encoding method.
+
+The performance of the models predicting Flu vaccine response consistently outperformed H1N1, which is not suprising given that the Flu target data is balanced and did not have to be resampled. We can also see that in most cases the Mode Imputed and Target Encoded data sets outperformed the others. Addittionaly, across the board we can see that the performance in models is CatBoost, xgBoost, Random Forrest, and Neural Network, in that order. 
+
 ### Model Stacking
 
-In addittion to comparing the performance of different classifiers, I also explored stacking each model to produce a more robust predictive model. Model stacking uses the outputs of each model as inputs of a final model. The intuition is that the final model is built by maximizing the strenghts and minimizing the weaknesses of each classifier. In order to for model stacking to improve performance of the base classifiers it is important for there not to be correaltion among the models - similiar to how you do not want there to be strong correlation among the input features. Since 3 of the 4 classifiers that were employed are ensemble methods, the correlation of the models was calculated to determine if other model types should be included even if they have poorer performance on their own. 
+In addittion to comparing the performance of different classifiers, I also explored stacking each model to produce a more robust predictive model. Model stacking uses the outputs of each model as inputs of a final model. The intuition is that the final model is built by maximizing the strenghts and minimizing the weaknesses of each classifier. In order to for model stacking to improve performance of the base classifiers it is important for there not to be correaltion among the models - similiar to how you do not want there to be strong correlation among the input features. Since 3 of the 4 classifiers that were employed are ensemble methods, the correlation of the models was calculated to determine if other model types should be included even if they have poorer performance on their own. The correlation of the 4 models is shown below in Figure 7, using the Mode Imputed and Target Encoded data.
+
+<p align="center">
+     <b>Figure 7: Model Correlation</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Response_Corr.png?raw=True" />
+  </p>
+</figure>
 
 The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
 
