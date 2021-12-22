@@ -124,21 +124,23 @@ As mentioned previously, the H1N1 vaccine responses are imbalanced with only 21%
 
 Given that the problem is a binary classification problem there were numerous Machine Learning algorithms that could reasonably predict the class. Several classification models were explored initially to identify which had the best performance. The K-Nearest Neighbors (KNN) algorithm was screened out due to poor performance. Since the at the core of the KNN algorithm is a distance metric calculation, categorical features make it more challenging for it to classify data points. A Support Vector Machine classification algorithm was also explored but also screened out due to poor initial performance and it being computational-intensive on a large data set. Ultimately Multi-Layer Perceptron (MLP), Boosting, and Random Forrest algorithms were chosen as candidates to validate and test for this classification problem. The following sections describe the methodology and process for each algorithm. For each algorithm used the data was split into training (80%) and testing (20%) for each of the response variables. Prior to training each classification model the data was standardized by removing the mean and scaling to unit variance i.e. normally distributed with mean zero and unit variance. Performance was measured by the Area Under the Receiver Operator Curve. 
 
-### Multi-Layer Perceptron Methodology
+### Multi-Layer Perceptron
 
 An MLP is a type of Artificial Neural Network, in which input nodes feed information forward in a signle direction. The MLP consists of three layers – an input layer, a hidden layer, and an output layer - that attempt to mimic the neurons of the human brain. Given the large size of the dataset an MLP offered to be a promising algorithm that might avoid any issues of overfitting. To construct the architecture of the MLP, I explored using a different number of hidden layers, but after trial and error and conducting some research I determined that a single hidden layer often performed just as good as an MLP with multiple hidden layers. Cross-Validation was performed on the training set to tune the number of neurons in each hidden layer and the regularization parameter. The average Cross-Validation scores implied that a single hidden layer with 4-6 neurons and a regularization parameter of 0.0001 - 0.001 was optimal given the data set.
 
-### Boosting Methodology
+### Boosting Classifiers
 
-Boosting algorithms convert weak classifiers, which do not perform much better than random guessing, to strong ones by combining them together to form a weighted ensemble. The combination of classifiers allows the boosting algorithm to be robust and produce considerable improvements in performance compared to the use of one single classifier. I explored a xgBoost and CatBoost algorithm for the classification problem. Both algorithms were tuned with Cross-Validation to identify the optimal number of trees for the underlying Decision Tree Classifier, the learning rate - which is applied to each tree classifier to shrink its weight, and other parameters. 
+Boosting algorithms convert weak classifiers, which do not perform much better than random guessing, to strong ones by combining them together to form a weighted ensemble. The combination of classifiers allows the boosting algorithm to be robust and produce considerable improvements in performance compared to the use of one single classifier. I explored a xgBoost and CatBoost algorithm for the classification problem. Both algorithms were tuned with Cross-Validation to identify the optimal number of trees for the underlying Classifier, the learning rate - which is applied to each tree classifier to shrink its weight, and other parameters. 
 
-### Random Forrest Methodology
+### Random Forrest
 
-Random Forests are another ensemble learning method which randomly construct many decision trees and output the class predicted across all trees. Random Forrest method was chosen since it typically outperforms Decision Tree’s and did so in initial evaluations. Cross-Validation was used to tune the number of trees used in the classifier.
+Random Forests are another ensemble learning method which randomly construct many decision trees and output the class predicted across all trees. Random Forrest method was chosen since it typically outperforms Decision Tree’s and did so in initial evaluations, and to account for the categorical nature of the data set. Cross-Validation was used to tune the number of trees used in the classifier.
 
 ### Model Stacking
 
-In addittion to comparing the performance of different classifiers, I also explored stacking each model to produce a more robust predictive model. Model stacking uses the outputs of each model as inputs of a final model. The intuition is that the final model is built by maximizing the strenghts and minimizing the weaknesses of each classifier. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
+In addittion to comparing the performance of different classifiers, I also explored stacking each model to produce a more robust predictive model. Model stacking uses the outputs of each model as inputs of a final model. The intuition is that the final model is built by maximizing the strenghts and minimizing the weaknesses of each classifier. In order to for model stacking to improve performance of the base classifiers it is important for there not to be correaltion among the models - similiar to how you do not want there to be strong correlation among the input features. Since 3 of the 4 classifiers that were employed are ensemble methods, the correlation of the models was calculated to determine if other model types should be included even if they have poorer performance on their own. 
+
+The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
 
 ## Evaluation and Final Results
 
