@@ -8,7 +8,7 @@ Since the rise of the COVID-19, public health experts across the world have poin
 a vaccine as a key factor in stemming the spread of the disease. Vaccines provide acquired immunity to 
 infectious diseases for individuals, and enough immunizations in a community can further reduce the 
 spread of diseases through "herd immunity."<sup>1</sup> While the promise of a vaccine provides hope to infectious 
-disease experts on defeating the virus, individuals need to be willing to getting the vaccine. An NPR poll 
+disease experts on defeating the virus, individuals need to be willing to get the vaccine. An NPR poll 
 recently found that only half of Americans say they will get a COVID-19 vaccine once available. Respondents 
 cited concerns about the side effects and fears about contracting the virus as reasons for not wanting to 
 receive the vaccine.<sup>2</sup>
