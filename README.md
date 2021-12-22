@@ -151,7 +151,7 @@ In addittion to comparing the performance of different classifiers, I also explo
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Response_Corr.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/model_corr.png?raw=True" />
   </p>
 </figure>
 
