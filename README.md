@@ -140,6 +140,15 @@ Random Forests are another ensemble learning method which randomly construct man
 
 After hyperparameter tuning each of the classification algorithms and identifying the optimal parameters each model was evaluated on its accuracy and Area Under the Receiver Operator Curve (AUC) for the test data. Figure 6 displauys the AUC results by model type, imputation method, and encoding method.
 
+<p align="center">
+     <b>Figure 6: Model Performance Comparison</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Model%20AUC%20Comparison.png?raw=True" />
+  </p>
+</figure>
+
 The performance of the models predicting Flu vaccine response consistently outperformed H1N1, which is not suprising given that the Flu target data is balanced and did not have to be resampled. We can also see that in most cases the Mode Imputed and Target Encoded data sets outperformed the others. Addittionaly, across the board we can see that the performance in models is CatBoost, xgBoost, Random Forrest, and Neural Network, in that order. 
 
 ### Model Stacking
