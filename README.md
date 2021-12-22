@@ -19,9 +19,9 @@ seasonal flu vaccines. H1N1 is the subtype of Influenza A virus and well known o
 occurred during the 2009 swine flu pandemic as well as the 1918 “Spanish” Flu Pandemic. A vaccine for 
 the H1N1 flu virus became publicly available in October 2009. The competition aims to explore how we 
 can predict if an individual will get a COVID-19 vaccine by looking at data on the H1N1 and seasonal 
-vaccines from data from 2009-2010. A better understanding of how these characteristics are associated 
+vaccines from 2009-2010. A better understanding of how these characteristics are associated 
 with personal vaccination patterns can provide guidance for future public health efforts. The goal is to use 
-these characteristics to predict how likely an individual is to receive their H1N1 and seasonal flu vaccines.
+these characteristics to predict how likely an individual is to receive their H1N1 and seasonal flu vaccines, and to understand what factors influence an indiviudals decision to receive a vaccine.
 
 ## Data Source
 
@@ -35,7 +35,7 @@ and 2 are numerical. The dataset includes two response variables which are binar
 respondents reported having received a H1N1 vaccine or a seasonal flu vaccine. 
 
 Figure 1 and Figure 2 display the proportion of respondents who received the H1N1 and seasonal flu vaccines respectively. Only 21% of respondents 
-received the H1N1 vaccine, while 47% received the seasonal flu vaccine.
+received the H1N1 vaccine, while 47% received the seasonal flu vaccine. The H1N1 vaccine responses represent an imblanaced dataset, since the number of people who did not receive a H1N1 vaccine in the training data is twice more than those who did. This is important to note because most classification models operate under the assumption that the training data is balanced and if that is not accounted for the model can produce over optimistic results.
 
  <p align="center">
      <b>Figure 1: H1N1 Vaccine Responses</b>
@@ -74,23 +74,25 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
 ### Data Cleansing and Preprocessing
 #### Imputation
 
-After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not Employed have a missing value for Employment Industry and Employment Occupation. Therefore, those missing values were replaced with an addittional category.
+After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not "Employed" have a missing value for Employment Industry and Employment Occupation. Therefore, the missing values in those columns were replaced with an addittional category indicating "Not Employed."
 
-Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a Random Forrest classifier to predict missing values and the algorithm is described below:
+Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a xgBoost classifier to predict missing values and the algorithm is described below:
  1. Identify all (row, column) indices that have missing values
  2. Select column c with missing values as the target column
  3. Select subsample of the feature dataset that has no missing values in the training or testing data set
  4. For training data convert categorical features into dummy variables but leave the target column as categorical (multi-class)
- 5. Train Random Forrest Model and predict missing values for target column c
+ 5. Train calssifier and predict missing values for target column c
  6. Replace missing values in column c with prediction as a placeholder
  7. Repeat Steps 2-6 for all columns with missing values
  8. With the imputed data repeat Steps 2-6 using indices from Step 1 for 5 cycles
+
+The implementation of the MICE algorithm requires significantly more computational time than the mode imputation, but can provide a more scientific and better performing method for filling the missing data. Both imputation methods will be compared against eachtoher.
 
 #### Encoding
 
 For the categorical variables I explored target encoding and one hot encoding. Target encoding replaces the category value with an aggregate measure of the target variable for that category. I chose to replace the category with the mean target value of the category for each target variable. One hot encoding creates n-1 binary or dummy variables that indicate if the observation falls in that category, where n is the number of categories.
 
-The final results of the data preprocessing was 4 different data sets for each response variable, which are shown in Figure 4 below.
+The final results of the data preprocessing was 4 different data sets for each response variable (H1N1 and Flu vaccine respondents), which are shown in Figure 4 below.
 
 <p align="center">
      <b>Figure 4: Final Datasets</b>
