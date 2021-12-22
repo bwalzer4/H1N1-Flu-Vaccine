@@ -71,7 +71,7 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
 
 ## Methodology
 
-### Data Cleansing and Preprocessing
+### Data Preprocessing
 #### Imputation
 
 After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not "Employed" have a missing value for Employment Industry and Employment Occupation. Therefore, the missing values in those columns were replaced with an addittional category indicating "Not Employed."
