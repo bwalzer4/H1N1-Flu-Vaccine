@@ -167,11 +167,11 @@ In addittion to comparing the performance of different classifiers, I also explo
 Since there is strong correlation among the models, especially among the ensemble methods, I added addittional classifiers to the model stack to compare performance. In addittion to the original 4 classifiers I added a K-Nearest Neighbors, Categorical Naive Bayes, and Support Vector Machine classifier. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. Figure 8 displays the results of the model stacks.
 
 <p align="center">
-     <b>Figure 7: Model Stack Results</b>
+     <b>Figure 8: Model Stack Results</b>
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/model_corr.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Model%20Stack%20Results.png?raw=True" />
   </p>
 </figure>
 
