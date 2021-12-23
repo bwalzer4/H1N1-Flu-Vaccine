@@ -164,31 +164,23 @@ In addittion to comparing the performance of different classifiers, I also explo
   </p>
 </figure>
 
-Since there is strong correlation among the models, especially among the ensemble methods, I added addittional classifiers to the model stack to compare performance. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
+Since there is strong correlation among the models, especially among the ensemble methods, I added addittional classifiers to the model stack to compare performance. In addittion to the original 4 classifiers I added a K-Nearest Neighbors, Categorical Naive Bayes, and Support Vector Machine classifier. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. Figure 8 displays the results of the model stacks.
+
+<p align="center">
+     <b>Figure 7: Model Stack Results</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/model_corr.png?raw=True" />
+  </p>
+</figure>
+
+The model stacks for the original 4 classifiers shows a modest increase in performance compared to any one model. For H1N1 prediction the model stack with all 7 classifiers showed a drastic decrease in performance, while the Flu prediction showed silght decrease.
 
 ## Evaluation and Final Results
 
-After hyperparameter tuning each of the classification algorithms and identifying the optimal parameters each model was evaluated on its accuracy and Area Under the Receiver Operator Curve (AUC) for the test data. While both evaluation criteria are shown the AUC is the preferred metric for measuring classification performance and is what is used in the DataDriven competition to assess submissions. Table 1 displays the results for predicting how likely individual were to receive their H1N1 vaccine and Table 2 displays the likelihood to receive the seasonal flu vaccine.
+Based on the results outlined in previous sections I chose to use the Mode Imputed and Target Encoded data set for evaluation on the test data provided in the Data Challenge. Additionally, for the H1N1 prediction the data was resampled to account for imbalances in the training set. For each response variable I refit the Neural Network, xgBoost, CatBoost, and Random Forest classifiers on the entire training data set. Laslty, the model stack was fit on all 4 classifiers and used to predict the test data from the Data Challenge. 
 
-<p align="center">
-     <b>Table 1: H1N1 Vaccine Prediction Results</b>
-  </p>
-<figure>
-  <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/H1N1%20Prediction%20Results.png?raw=True" />
-  </p>
-</figure>
-
-<p align="center">
-     <b>Table 2: Seasonal Vaccine Prediction Results</b>
-  </p>
-<figure>
-  <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Seasonal%20Flu%20Prediction%20Results.png?raw=True" />
-  </p>
-</figure>
-
-From Figure 1 we know that the responses to seasonal flu vaccine are more balanced than the H1N1 responses and from the correlation plots in Appendix D – Correlation between Features and Response Variables we can see that the features correlation with seasonal flu vaccine responses are of a greater magnitude, so it is not surprising that the algorithms were able to achieve a higher AUC for predicting seasonal flu responses. The Gradient Boosting algorithms performed best for both Reponses, but all other algorithms were within 1% of the AUC measures.
 
 While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. This slight nuance is the difference between Predictive and Explanatory modeling, and warrants further discussion beyond the scope of this project, but Professor Galit Shmueli’s paper “To Explain or To Predict?” provides a thorough distinction and practical implications.<sup>5</sup> 
 To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>6</sup> 
