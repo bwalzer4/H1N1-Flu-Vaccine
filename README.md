@@ -189,11 +189,11 @@ To better understand the importance of each feature I extracted the importance o
 
 
 <p align="center">
-     <b>Table 3: Feature Importance</b>
+     <b>Figure 10: Feature Importance</b>
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/seas_waffle.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Feature%20Importance.png?raw=True" />
   </p>
 </figure>
 
