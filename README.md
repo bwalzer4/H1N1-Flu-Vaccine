@@ -179,9 +179,16 @@ The model stacks for the original 4 classifiers shows a modest increase in perfo
 
 ## Final Results and Conclusion
 
-Based on the results outlined in previous sections I chose to use the Mode Imputed and Target Encoded data set for evaluation on the test data provided in the Data Challenge. Additionally, for the H1N1 prediction the data was resampled to account for imbalances in the training set. For each response variable I refit the Neural Network, xgBoost, CatBoost, and Random Forest classifiers on the entire training data set. Laslty, the model stack was fit on all 4 classifiers and used to predict the test data from the Data Challenge. Figure 9 displays the average AUC for both responses based on the Data Challenge test data.
+Based on the results outlined in previous sections I chose to use the Mode Imputed and Target Encoded data set for evaluation on the test data provided in the Data Challenge. Additionally, for the H1N1 prediction the data was resampled to account for imbalances in the training set. For each response variable I refit the Neural Network, xgBoost, CatBoost, and Random Forest classifiers on the entire training data set. Laslty, the model stack was fit on all 4 classifiers and used to predict the test data from the Data Challenge. Figure 9 displays the Data Challenege submission resuts, which was an average AUC of 0.8445.
 
-
+<p align="center">
+     <b>Figure 9: Final Submission Results</b>
+  </p>
+<figure>
+  <p align="center">
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/submit%20score.png?raw=True" />
+  </p>
+</figure>
 
 
 While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. This slight nuance is the difference between Predictive and Explanatory modeling, and warrants further discussion beyond the scope of this project, but Professor Galit Shmueli’s paper “To Explain or To Predict?” provides a thorough distinction and practical implications.<sup>5</sup> 
