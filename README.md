@@ -177,13 +177,15 @@ Since there is strong correlation among the models, especially among the ensembl
 
 The model stacks for the original 4 classifiers shows a modest increase in performance compared to any one model. For H1N1 prediction the model stack with all 7 classifiers showed a drastic decrease in performance, while the Flu prediction showed silght decrease.
 
-## Evaluation and Final Results
+## Final Results and Conclusion
 
-Based on the results outlined in previous sections I chose to use the Mode Imputed and Target Encoded data set for evaluation on the test data provided in the Data Challenge. Additionally, for the H1N1 prediction the data was resampled to account for imbalances in the training set. For each response variable I refit the Neural Network, xgBoost, CatBoost, and Random Forest classifiers on the entire training data set. Laslty, the model stack was fit on all 4 classifiers and used to predict the test data from the Data Challenge. 
+Based on the results outlined in previous sections I chose to use the Mode Imputed and Target Encoded data set for evaluation on the test data provided in the Data Challenge. Additionally, for the H1N1 prediction the data was resampled to account for imbalances in the training set. For each response variable I refit the Neural Network, xgBoost, CatBoost, and Random Forest classifiers on the entire training data set. Laslty, the model stack was fit on all 4 classifiers and used to predict the test data from the Data Challenge. Figure 9 displays the average AUC for both responses based on the Data Challenge test data.
+
+
 
 
 While developing an algorithm that produces the highest AUC is how the competition was scored, understanding what factors and characteristics influence the decision to receive a H1N1 or seasonal flu vaccine are more relevant to helping researchers predict if an individual will receive a COVID-19 vaccine once developed. This slight nuance is the difference between Predictive and Explanatory modeling, and warrants further discussion beyond the scope of this project, but Professor Galit Shmueli’s paper “To Explain or To Predict?” provides a thorough distinction and practical implications.<sup>5</sup> 
-To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Table 3 for each vaccine.<sup>6</sup> 
+To better understand the importance of each feature I extracted the importance or weights of the features from each model and have displayed the top 10 in Figure 10 for each vaccine.<sup>6</sup> 
 
 
 <p align="center">
