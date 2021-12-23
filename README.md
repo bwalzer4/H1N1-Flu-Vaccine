@@ -116,7 +116,7 @@ The cleaned and imputed datasets contained 35 and 90 features and while there ar
   </p>
 </figure>
 
-### Subsampling
+### Resampling
 
 As mentioned previously, the H1N1 vaccine responses are imbalanced with only 21% of respondents reporting they received the vaccine. To handle this I employed an under and over sampling method from the Imbalanced Learn Python package.<sup>4</sup> Over sampling generates additional samples from the class that is less represented in the data, while under sampling generates fewer samples from the class that is over represented, with the ultimate goal of creating a data set that is more balanced and will prefrom better on data not in the training set.
 
@@ -164,7 +164,7 @@ In addittion to comparing the performance of different classifiers, I also explo
   </p>
 </figure>
 
-The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
+Since there is strong correlation among the models, especially among the ensemble methods, I added addittional classifiers to the model stack to compare performance. The prediction probabiity of each model was fed as an input feature into Logistic Regression meta learner. 
 
 ## Evaluation and Final Results
 
