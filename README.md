@@ -200,7 +200,7 @@ To better understand the importance of each feature I extracted the importance o
   </p>
 <figure>
   <p align="center">
-    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Feature%20Importance.png?raw=True" />
+    <img src="https://github.com/bwalzer4/H1N1-Flu-Vaccine/blob/main/Visuals/Feature_Importance.png?raw=True" />
   </p>
 </figure>
 
