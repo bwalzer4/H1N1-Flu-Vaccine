@@ -74,7 +74,7 @@ Figure 3 shows a more detailed breakdown of each individuals vaccine responses. 
 ### Data Preprocessing
 #### Imputation
 
-After exploring the dataset three features, Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not "Employed" have a missing value for Employment Industry and Employment Occupation. Therefore, the missing values in those columns were replaced with an addittional category indicating "Not Employed."
+After exploring the dataset, three features - Employment Industry, Health Insurance, and Employment Occupation, were identified that had a significant amount of data missing – over 45% of the observations were missing. When examinning the data closer we can see that individuals with an Employment Status that is not "Employed" have a missing value for Employment Industry and Employment Occupation. Therefore, the missing values in those columns were replaced with an addittional category indicating "Not Employed."
 
 Across all features, 6.5% of the entire data set had missing values. I explored two different imputation methods to handle the missing data. The first was a simple mode imputation, since all of the features were not continuous and did not have a large range of values. The second method was an iterative imputation approach similar to Multiple Imputation by Chained Equations (MICE). <sup>3</sup> The iterative imputation approach used a xgBoost classifier to predict missing values and the algorithm is described below:
  1. Identify all (row, column) indices that have missing values
